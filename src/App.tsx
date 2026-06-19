@@ -598,7 +598,7 @@ export default function App() {
       <section style={{ position: 'relative', padding: 'var(--section-py) 0', overflow: 'hidden', background: 'var(--color-dark-alt)' }}>
         {/* Background image */}
         <div className="img-wrap" style={{ position: 'absolute', inset: 0 }}>
-          <Img src="/images/cta.webp" alt="Nettoyage professionnel" className="w-full h-full object-cover" style={{ opacity: 0.25 }} />
+          <img src="/images/cta.webp" alt="Nettoyage professionnel" className="w-full h-full object-cover" style={{ opacity: 0.25, width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
         </div>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(20,33,61,0.92) 0%, rgba(28,43,74,0.80) 100%)' }} />
 
