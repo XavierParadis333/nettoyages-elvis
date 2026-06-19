@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Palette dérivée des images — nettoyage, ambiance froide clinique/navale */
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-dark: #1C2B4A;       /* navy profond — sections sombres */
+  --color-dark-alt: #14213D;   /* navy encore plus sombre */
+  --color-accent: #3A7BD5;     /* bleu clinique froid */
+  --color-accent-light: #A8C5E8;
+  --color-text: #1C2B4A;
+  --color-text-muted: #6B7C9A;
+  --color-border: #DDE3EF;
+
+  /* Typographie */
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Espacements rythmés 8px */
+  --section-py: 120px;
+  --section-py-sm: 80px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Cursor glow */
+.cursor-glow {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(58, 123, 213, 0.18) 0%, transparent 70%);
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.3s;
+  filter: blur(20px);
+}
+
+/* Accent line */
+.accent-line {
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+/* Label style */
+.label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Image fallback/fade-in */
+.img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1C2B4A 0%, #14213D 100%);
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.img-wrap img.loaded {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
